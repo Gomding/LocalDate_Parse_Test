@@ -2,6 +2,7 @@ package com.test.parse.localdate.controller;
 
 import com.test.parse.localdate.dto.GetModel;
 import com.test.parse.localdate.dto.JsonModel;
+import com.test.parse.localdate.dto.ResponseModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,11 @@ public class LocalDateParseController {
         log.info("post 요청 데이터 = {}", jsonModel);
 
         return "post 성공";
+    }
+
+    @GetMapping("/response")
+    public ResponseModel responseModel() {
+        return new ResponseModel("park", LocalDateTime.of(2020,10,5,10,0,0));
     }
 
 }

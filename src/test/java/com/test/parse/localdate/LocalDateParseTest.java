@@ -68,5 +68,20 @@ public class LocalDateParseTest {
 
     }
 
+    @Test
+    public void responseModel의_LocalDateTime은_변화된다() throws Exception {
+        //given
+        String url = "/response";
+
+        //when
+        ResultActions resultActions = this.mockMvc.perform(get(url));
+
+        //then
+        resultActions
+                .andExpect(status().isOk())
+                .andExpect(content().json("{\"name\":\"park\", \"requestDateTime\":\"2020-10-05T10:00:00\"}"));
+
+
+    }
 
 }
