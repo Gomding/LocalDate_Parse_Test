@@ -36,6 +36,20 @@ public class LocalDateParseTest {
 
     }
 
+    @Test
+    public void requestParameter의_LocalDate는_변환된다() throws Exception {
+        //given
+        String url = "/requestParameter?requestDateTime=2020-10-05T10:00:00";
+
+        //when
+        ResultActions resultActions = this.mockMvc.perform(get(url));
+
+        resultActions
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("requestParameter 성공")));
+    }
+
+
 
 
 }
