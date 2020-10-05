@@ -22,9 +22,10 @@ public class LocalDateParseController {
         return "get 성공";
     }
 
-    @GetMapping("requestParameter")
+    @GetMapping("/requestParameter")
     public String requestParameter(
-            @RequestParam("requestParameter")LocalDateTime requestDateTime) {
+            @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+            @RequestParam("requestDateTime")LocalDateTime requestDateTime) {
 
         log.info("requestParameter 요청 데이터 = {}", requestDateTime);
 
